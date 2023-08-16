@@ -12,5 +12,5 @@ Criação do backend.
 [ ] - Quarto passo:
 Criação do front-end. Integração do back-end com o front-end.
 
-[ ] - Sexto passo:
+[ ] - Quinto passo:
 Deploy.
