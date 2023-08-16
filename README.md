@@ -10,10 +10,7 @@ Modelar e normalizar os dados. Criação da estrutura do banco de dados.
 Criação do backend.
 
 [ ] - Quarto passo:
-Criação do front-end.
-
-[ ] - Quinto passo:
-Integração do back-end com o front-end.
+Criação do front-end. Integração do back-end com o front-end.
 
 [ ] - Sexto passo:
 Deploy.
