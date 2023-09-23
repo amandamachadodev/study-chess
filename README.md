@@ -3,7 +3,7 @@ Estou desenvolvendo esse projeto para usar no meu trabalho como instrutora de xa
 
 ## Ordem que irei desenvolver o projeto:
 
-[ ] - Primeiro passo:
+[✔️] - Primeiro passo:
 Modelar e normalizar os dados. Criação da estrutura do banco de dados.
 
 [ ] - Terceiro passo:
