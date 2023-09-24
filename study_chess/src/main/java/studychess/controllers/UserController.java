@@ -18,7 +18,7 @@ import studychess.services.JwtService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/")
 public class UserController {
 	@Autowired
 	private AuthenticationManager authenticationManager;
