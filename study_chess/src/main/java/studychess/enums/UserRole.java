@@ -13,4 +13,8 @@ public enum UserRole {
     public String getRole(){
         return role;
     }
+
+    public String getAuthority(){
+        return "ROLE_" + role.toUpperCase();
+    }
 }
