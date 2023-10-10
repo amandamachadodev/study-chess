@@ -1,4 +1,4 @@
-package studychess.controllers.midlewares;
+package studychess.controllers.middlewares;
 
 import studychess.exceptions.InvalidPasswordException;
 
