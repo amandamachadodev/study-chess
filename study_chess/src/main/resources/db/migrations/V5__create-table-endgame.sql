@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS `endgame` (
   `type` VARCHAR(100) NOT NULL,
   `text` VARCHAR NOT NULL,
   `notation` VARCHAR,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`endgame_id`)
 ) ENGINE=InnoDB;

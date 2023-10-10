@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS `tactic` (
   `type` VARCHAR(100) NOT NULL,
   `text` VARCHAR NOT NULL,
   `notation` VARCHAR,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`tactic_id`)
 ) ENGINE=InnoDB;

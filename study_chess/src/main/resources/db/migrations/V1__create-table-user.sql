@@ -3,5 +3,5 @@ CREATE TABLE IF NOT EXISTS `user` (
   `login` VARCHAR(200) NOT NULL,
   `password` VARCHAR(200) NOT NULL,
   `role` VARCHAR(10) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB;
