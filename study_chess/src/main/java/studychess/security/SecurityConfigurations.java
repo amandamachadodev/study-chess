@@ -23,8 +23,12 @@ public class SecurityConfigurations {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/register").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/authentication/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/authentication/register").permitAll()
+
+                        //para adicionar o primeiro admin é só mudar hasRole("ADMIN") para permitAll()
+                        
+                        .requestMatchers(HttpMethod.POST, "/authentication/register/admin").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

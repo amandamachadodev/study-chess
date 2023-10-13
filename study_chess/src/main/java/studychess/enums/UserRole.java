@@ -1,8 +1,8 @@
 package studychess.enums;
 
 public enum UserRole {
-    ADMIN("admin"),
-    ALUNO("aluno");
+    ADMIN("ADMIN"),
+    STUDENT("STUDENT");
 
     private String role;
 
@@ -14,7 +14,4 @@ public enum UserRole {
         return role;
     }
 
-    public String getAuthority(){
-        return "ROLE_" + role.toUpperCase();
-    }
 }
