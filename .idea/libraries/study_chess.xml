@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="study_chess">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/study_chess.zip!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>
