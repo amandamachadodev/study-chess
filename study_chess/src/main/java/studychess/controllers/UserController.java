@@ -27,7 +27,6 @@ public class UserController {
 	private JwtService jwtService;
 	@Autowired
 	private UserService userService;
-
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody @Valid AuthenticationDTO data) {
 		var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
@@ -36,13 +35,12 @@ public class UserController {
 
 		return ResponseEntity.ok(new LoginResponseDTO(token));
 	}
-
 	@PostMapping("/register")
 	public ResponseEntity<String> register(@RequestBody @Valid RegisterDTO data) {
 		try {
-			if(userService.loadUserByUsername(data.login()) != null) {
+			if(userService.loadUserByUsername(data.login()) != null)
 				return ResponseEntity.badRequest().body("Este usuário já existe no banco de dados.");
-			}
+
 			ValidatePassword.isValidPassword(data.password());
 
 			String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
@@ -55,14 +53,13 @@ public class UserController {
 			return ResponseEntity.badRequest().body(exception.getMessage());
 		}
 	}
-
 	@PostMapping("/register/admin")
 	public ResponseEntity<String> registerAdmin(@RequestBody @Valid RegisterDTO data) {
 		try {
 
-			if(userService.loadUserByUsername(data.login()) != null) {
+			if(userService.loadUserByUsername(data.login()) != null)
 				return ResponseEntity.badRequest().body("Este usuário já existe no banco de dados.");
-			}
+
 			ValidatePassword.isValidPassword(data.password());
 
 			String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
@@ -75,7 +72,4 @@ public class UserController {
 			return ResponseEntity.badRequest().body(exception.getMessage());
 		}
 	}
-
-
-
 }
