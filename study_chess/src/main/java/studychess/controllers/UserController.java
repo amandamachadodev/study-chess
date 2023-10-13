@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +19,7 @@ import studychess.services.UserService;
 import studychess.services.JwtService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("authentication")
 public class UserController {
 	@Autowired
 	private AuthenticationManager authenticationManager;
@@ -43,13 +41,13 @@ public class UserController {
 	public ResponseEntity<String> register(@RequestBody @Validated RegisterDTO data) {
 		try {
 			if(userService.loadUserByUsername(data.login()) != null) {
-				return ResponseEntity.badRequest().body("Este usuário já existe no banco de dados");
+				return ResponseEntity.badRequest().body("Este usuário já existe no banco de dados.");
 			}
 			ValidatePassword.isValidPassword(data.password());
 
 			String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
 
-			userService.saveUser(data.login(), encryptedPassword, UserRole.ALUNO);
+			userService.saveUser(data.login(), encryptedPassword, UserRole.STUDENT);
 
 			return ResponseEntity.ok().build();
 
@@ -58,28 +56,12 @@ public class UserController {
 		}
 	}
 
-	@PostMapping("/testing")
-	public ResponseEntity<String> testing() {
-		return ResponseEntity.ok().body("Testou certo!");
-	}
-
 	@PostMapping("/register/admin")
 	public ResponseEntity<String> registerAdmin(@RequestBody @Validated RegisterDTO data) {
 		try {
-			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
-			// Check if user role is not admin
-			boolean isAdmin = auth.getAuthorities().stream()
-					.anyMatch(authority -> {
-                        return authority.getAuthority().equals(UserRole.ADMIN.getAuthority());
-                    });
-
-			if (!isAdmin) {
-				return ResponseEntity.badRequest().body("Somente admins podem criar admins");
-			}
 
 			if(userService.loadUserByUsername(data.login()) != null) {
-				return ResponseEntity.badRequest().body("Este usuário já existe no banco de dados");
+				return ResponseEntity.badRequest().body("Este usuário já existe no banco de dados.");
 			}
 			ValidatePassword.isValidPassword(data.password());
 
