@@ -13,19 +13,16 @@ public class ValidatePassword {
         boolean containsNumber = false;
 
         for (char c : password.toCharArray()) {
-            if (Character.isLetter(c)) {
+            if (Character.isLetter(c))
                 containsLetter = true;
-            } else if (Character.isDigit(c)) {
+            else if (Character.isDigit(c))
                 containsNumber = true;
-            }
 
-            if (containsLetter && containsNumber) {
+            if (containsLetter && containsNumber)
                 break;
-            }
         }
 
-        if (!containsLetter || !containsNumber) {
+        if (!containsLetter || !containsNumber)
             throw new InvalidPasswordException("A senha deve conter letras e números.");
-        }
     }
 }
