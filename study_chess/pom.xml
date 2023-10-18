@@ -81,8 +81,13 @@
   			<version>5.2.0</version>
   			<scope>test</scope>
 		</dependency>
-		
-	</dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.28</version>
+        </dependency>
+
+    </dependencies>
 
 	<build>
 		<plugins>

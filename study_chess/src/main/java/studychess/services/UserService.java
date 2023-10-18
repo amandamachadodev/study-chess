@@ -18,12 +18,11 @@ public class UserService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		return repository.findByLogin(username);
 	}
-
-
-	public UserDetails saveUser(String name, String password, UserRole role) {
-		UserModel newUser = new UserModel(name, password, role);
-		return repository.save(newUser);
-
-	}
-	
+    public UserDetails saveUser(String name, String password, UserRole role) {
+        UserModel newUser = new UserModel(name,password,role);
+        return repository.save(UserModel.builder()
+                .login(name)
+                .password(password)
+                .role(role).build());
+    }
 }
