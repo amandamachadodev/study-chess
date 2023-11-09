@@ -16,12 +16,8 @@ public class TacticModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "name", nullable = false, length = 200)
-    private String name;
-    @Column(name = "type", nullable = false, length = 200)
+    @Column(name = "type", nullable = false, length = 100)
     private String type;
-    @Column(name = "description", nullable = false, length = 200)
+    @Column(name = "description", nullable = false, length = 1400)
     private String description;
-    @Column(name = "notation", nullable = false, length = 200)
-    private String notation;
 }
