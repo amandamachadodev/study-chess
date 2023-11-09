@@ -1,8 +1,5 @@
 CREATE TABLE IF NOT EXISTS `endgame` (
-  `endgame_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50) NOT NULL,
+  `endgame_id` NOT NULL PRIMARY KEY,
   `type` VARCHAR(100) NOT NULL,
-  `text` VARCHAR NOT NULL,
-  `notation` VARCHAR,
-  PRIMARY KEY (`endgame_id`)
+  `description` VARCHAR(200) NOT NULL
 ) ENGINE=InnoDB;

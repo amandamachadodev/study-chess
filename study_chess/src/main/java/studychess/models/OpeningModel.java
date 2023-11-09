@@ -1,21 +1,22 @@
 package studychess.models;
 
+import java.io.Serializable;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.io.Serializable;
 
 @AllArgsConstructor
 @Data
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity(name= "tactic")
-@Table(name = "tactic")
-public class TacticModel implements Serializable {
+@Entity(name= "opening")
+@Table(name = "opening")
+public class OpeningModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name", nullable = false, length = 50)
+    private String name;
     @Column(name = "type", nullable = false, length = 50)
     private String type;
     @Column(name = "description", nullable = false, length = 200)

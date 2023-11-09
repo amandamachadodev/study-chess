@@ -10,9 +10,9 @@ import java.io.Serializable;
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity(name= "tactic")
-@Table(name = "tactic")
-public class TacticModel implements Serializable {
+@Entity(name= "checkmate")
+@Table(name = "checkmate")
+public class CheckmateModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
